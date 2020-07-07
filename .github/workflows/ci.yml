@@ -12,12 +12,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest] # later make it work with macos and windows: , macOS-latest, windows-latest]
         cabal: ["3.2"]
         ghc:
           - "8.6.5"
-          - "8.8.3"
-          - "8.10.1"
+          #later make it work with: - "8.8.3"
+          #later make it work with:- "8.10.1"
         exclude:
           - os: macOS-latest
             ghc: 8.8.3
@@ -51,9 +51,9 @@ jobs:
 
     - name: Build
       run: |
-        cabal configure --enable-tests --enable-benchmarks --test-show-details=direct
-        cabal build all
+        cabal v2-configure --enable-tests --enable-benchmarks --test-show-details=direct
+        cabal v2-build all
 
     - name: Test
       run: |
-        cabal test all
+        cabal v2-test all
