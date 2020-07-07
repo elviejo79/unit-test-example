@@ -51,7 +51,7 @@ jobs:
 
     - name: Build
       run: |
-        cabal v2-install hspec
+        cabal v2-update && cabal v2-install hspec-discover
         cabal v2-configure --enable-tests --enable-benchmarks --test-show-details=direct
         cabal v2-build all
 
