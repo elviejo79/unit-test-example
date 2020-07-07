@@ -1,7 +1,5 @@
 # Up-front Unit Testing in Haskell
 
-[[To Japanese]](../ja/tutorial.md)
-
 This article is a tutorial about unit testing in Haskell using doctest, hspec and Cabal. Readers are supposed to use Haskell Platform 2014.2.0.0 or later.
 
 ## Abstract
@@ -98,7 +96,7 @@ with the following command:
 
 Here is an image of an example manual:
 
-![An example of manual](https://raw.github.com/kazu-yamamoto/unit-test-example/master/markdown/img/haddock.png)
+![An example of manual](./img/haddock.png?raw=true)
 
 Let's run the tests with the "doctest" command:
 
@@ -114,7 +112,7 @@ without installing the current package.
 
 ## hspec
 
-The behaviors documenting functionality rather than usage 
+The behaviors documenting functionality rather than usage
 of your library should be written with hspec.
 Basically, one test file should be prepared for each module.
 For instance, "Base64Spec.hs" is created for "Base64.hs".
@@ -173,12 +171,12 @@ You can run Spec with the "hspec" function:
       - encodes multiples of 3
       - encodes multiples of 3 + 1
       - encodes multiples of 3 + 2
-    
+
     decode
       - decodes no padding
       - decodes one padding
       - decodes two paddings
-    
+
     Finished in 0.0956 seconds
     6 examples, 0 failures
 
@@ -228,7 +226,7 @@ in the Cabal file:
       Main-Is:              doctests.hs
       Build-Depends:        base
                           , doctest >= 0.9.3
-    
+
     Test-Suite spec
       Type:                 exitcode-stdio-1.0
       Default-Language:     Haskell2010
@@ -269,8 +267,8 @@ the following one line should be stored in "test/Spec.hs":
 ```haskell
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}
 ```
-    
-The "test/Spec.hs" file above will trigger a process to pick up 
+
+The "test/Spec.hs" file above will trigger a process to pick up
 all the tests in all the  hspec files in the same directory.
 
 The procedure to automatically run test suites is as follows:
